@@ -4,6 +4,14 @@ import tailwindcss from '@tailwindcss/vite'
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
+  app: {
+    head: {
+      link: [
+        { rel: 'icon', type: 'image/png', href: '/assets/icon.png' },
+        { rel: 'apple-touch-icon', href: '/assets/icon.png' },
+      ],
+    },
+  },
   modules: ['@nuxtjs/i18n'],
   i18n: {
     defaultLocale: 'fr',
