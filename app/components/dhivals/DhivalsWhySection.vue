@@ -2,8 +2,7 @@
 const { t } = useI18n()
 const localePath = useLocalePath()
 
-/** Remplacez par `/assets/pourquoi.jpg` lorsque le visuel dédié est disponible. */
-const WHY_IMAGE_SRC = '/assets/hero1.png'
+const WHY_IMAGE_SRC = '/assets/PourquoiDhivals.jpg'
 
 const points = [
   { key: 's1', icon: 'eye' as const, accent: 'teal' as const },

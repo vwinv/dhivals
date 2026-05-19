@@ -1,6 +1,8 @@
 <script setup lang="ts">
 const { t } = useI18n()
 
+const APPROACH_IMAGE_SRC = '/assets/NotreApproche.png'
+
 const steps = [
   { key: 's1', icon: 'ear' as const },
   { key: 's2', icon: 'strategy' as const },
@@ -93,7 +95,15 @@ onUnmounted(() => {
           class="relative mx-auto mt-10 w-full max-w-[min(100%,20rem)] shrink-0 sm:max-w-xs lg:mx-0 lg:mt-12"
         >
           <div class="aspect-square w-full overflow-hidden rounded-full shadow-lg ring-4 ring-white/20">
-            <DhivalsApproachIllustration />
+            <img
+              :src="APPROACH_IMAGE_SRC"
+              :alt="t('approach.title')"
+              class="h-full w-full object-cover"
+              loading="lazy"
+              decoding="async"
+              width="400"
+              height="400"
+            >
           </div>
         </div>
 

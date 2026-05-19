@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const { t } = useI18n()
 
-const BG_SRC = '/assets/hero2.png'
+const BG_SRC = '/assets/contact.jpg'
 
 const typeKeys = ['t1', 't2', 't3', 't4', 't5'] as const
 

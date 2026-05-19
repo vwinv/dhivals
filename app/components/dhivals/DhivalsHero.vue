@@ -3,7 +3,7 @@ const { t } = useI18n()
 const localePath = useLocalePath()
 const { preloadImages } = usePreloadImages()
 
-const HERO_IMAGES = ['/assets/hero1.png', '/assets/hero2.png'] as const
+const HERO_IMAGES = ['/assets/hero1.jpg', '/assets/hero2.jpg'] as const
 const LOGO_SRC = '/assets/logo.png'
 const PRELOAD_SRCS = [...HERO_IMAGES, LOGO_SRC]
 
@@ -44,7 +44,7 @@ onMounted(async () => {
   if (prefersReducedMotion.value) return
 
   slideTimer = setInterval(() => {
-    activeSlide.value = activeSlide.value === 0 ? 1 : 0
+    activeSlide.value = (activeSlide.value + 1) % HERO_IMAGES.length
   }, 7500)
 })
 
