@@ -5,7 +5,8 @@ const { preloadImages } = usePreloadImages()
 
 const HERO_IMAGES = ['/assets/hero1.jpg', '/assets/hero2.jpg'] as const
 const LOGO_SRC = '/assets/logo.png'
-const PRELOAD_SRCS = [...HERO_IMAGES, LOGO_SRC]
+/** Première slide + logo avant d’enlever le voile ; slide 2 en arrière-plan */
+const CRITICAL_PRELOAD = [HERO_IMAGES[0], LOGO_SRC] as const
 
 const surfaceReady = ref(false)
 const removeLoader = ref(false)
@@ -27,10 +28,12 @@ onMounted(async () => {
   ).matches
 
   try {
-    await preloadImages([...PRELOAD_SRCS])
+    await preloadImages([...CRITICAL_PRELOAD])
   } catch (e) {
     console.error(e)
   }
+
+  preloadImages([HERO_IMAGES[1]]).catch((e) => console.error(e))
 
   await nextTick()
   requestAnimationFrame(() => {
@@ -100,8 +103,11 @@ onUnmounted(() => {
             :src="src"
             alt=""
             class="h-full w-full object-cover"
-            fetchpriority="high"
+            :fetchpriority="i === 0 ? 'high' : 'low'"
+            :loading="i === 0 ? 'eager' : 'lazy'"
             decoding="async"
+            width="1920"
+            height="1280"
           >
         </div>
         <div

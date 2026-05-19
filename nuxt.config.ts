@@ -9,6 +9,12 @@ export default defineNuxtConfig({
       link: [
         { rel: 'icon', type: 'image/png', href: '/assets/icon.png' },
         { rel: 'apple-touch-icon', href: '/assets/icon.png' },
+        {
+          rel: 'preload',
+          as: 'image',
+          href: '/assets/hero1.jpg',
+          fetchpriority: 'high',
+        },
       ],
     },
   },

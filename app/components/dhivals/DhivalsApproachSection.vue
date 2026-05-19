@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const { t } = useI18n()
 
-const APPROACH_IMAGE_SRC = '/assets/NotreApproche.png'
+const APPROACH_IMAGE_SRC = '/assets/NotreApproche.jpg'
 
 const steps = [
   { key: 's1', icon: 'ear' as const },
